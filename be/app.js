@@ -40,26 +40,20 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-
+// Mongodb 연결
 const mongoose = require('mongoose')
-
-
-// 모델만들기
-// 1. 스키마 부터 만들자
-const userSchema = new mongoose.Schema({
-  name: {type: String, default: ''},
-  age: {type: Number, default: 1}
-})
-
-const User = mongoose.model('User', userSchema)
+const User = require('./models/users')
 
 
 // mongoose 연결
 
 mongoose.connect('mongodb://localhost:27017/nemv', { useNewUrlParser: true }, (err) => {
   if (err) return console.log(err)
-  console.log('mongoose connected!');
+  console.log('mongoose connected!')
 })
+// User.deleteMany()
+//   .then(r => console.log(r))
+//   .catch(e => console.error(e))
 
 
 // 스키마의 CRUD

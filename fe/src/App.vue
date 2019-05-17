@@ -88,7 +88,7 @@ export default {
         },
         {
           icon: 'account_circle',
-          title: 'user',
+          title: '사용자관리',
           to: {
             path: '/user'
           }
